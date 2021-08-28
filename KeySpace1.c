@@ -5,7 +5,7 @@
 
 int Find_Key_KS1(Table *Table) {
     if (Table->ks1 == NULL || Table->ind == 0) {
-        printf("Maybe you add elements in KeySpace1? Or you just want to search a monkey flip?\nOk, get it->\nMONKEY FLIP!\n");
+        printf("You don't have elements in a KeySpace1");
         return 0;
     }
     int key1, i, j = 0;
@@ -60,7 +60,7 @@ int Find_Key_KS1(Table *Table) {
             return 0;
         }
     } else {
-        printf("Insert 1 or 2. Not a string, not a 0, not a number > 2. Just 1 or 2! ONE OR TWO!");
+        printf("Insert 1 or 2. Not a string, not a 0, not a number > 2. Just 1 or 2!");
     }
     ///
     return 0;
@@ -68,7 +68,7 @@ int Find_Key_KS1(Table *Table) {
 
 int Refresh1(Table *Table) {
     if (Table->ks1 == NULL) {
-        printf("You dont even have KeySpace1!");
+        printf("You don't even have KeySpace1!");
         return 0;
     }
     int key1, j = 0;
@@ -90,16 +90,16 @@ int Refresh1(Table *Table) {
         }
     }
     if (j == 0) {
-        printf("haha there is no key in table1");
+        printf("No keys in table1");
     } else if (j == 1) {
-        printf("ummm i found key1 but it is alone");
+        printf("Key1 is alone");
     };
     return 0;
 }
 
 int Delete_Key1(Table *Table) {
     if (Table->ks1 == NULL || Table->ind == 0) {
-        printf("listen, i know, it is a sad true, but...You dont have items in KeySpace1. Don't worry, it can be solved - just add items in it and chill\n");
+        printf("You don't have items in a KeySpace1");
         return 0;
     }
     int key1, j = 0;
