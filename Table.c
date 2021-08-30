@@ -3,34 +3,40 @@
 #include <string.h>
 #include "Table.h"
 
-int getInt(int *a) {
-    int n;
-    do {
-        n = scanf("%d", a);
-        if (n < 0)
-            return 0;
-        if (n == 0) {
-            printf("%s\n", "Error! Repeat input");
-            scanf("%*c");
+
+int getInt(int *a)
+{
+    int result =-2;
+    for(;;) {
+        printf("\nplease input INT number --> ");
+        result = scanf("%d", a);
+        if (result == 0 ) {
+            result =-2;
+            while (getchar() != '\n'); // --> очистить стандартный ввод!
+            printf("input ERROR repet please! \n");
+            continue;
         }
-    } while (n == 0);
-    scanf("%*c");
-    return 1;
+        if (result == -1){
+            printf("THE END OF FILE, exit... \n");
+            exit(EOF);
+        }
+        return result;
+    }
 }
 
 int CreateTable(Table *Table) {
-    printf("Insert size of KeySpace1:");
-    getInt(&(Table->msize1));
-    printf("Insert size of KeySpace2:");
-    getInt(&(Table->msize2));
-    while (Table->msize1 <= 0 || Table->msize2 <= 0) {
-        printf("AHAHAHAH You really thought that you can create Table with this sizes?Man, get away or rewrite it pls\n");
-        printf("Insert size of KeySpace1:");
-        getInt(&(Table->msize1));
-        printf("Insert size of KeySpace2:");
-        getInt(&(Table->msize2));
+    for(;;){
+      printf("Insert size of KeySpace1:");
+      getInt(&(Table->msize1));
+      printf("Insert size of KeySpace2:");
+      getInt(&(Table->msize2));
+      if (Table->msize1 <= 0 || Table->msize2 <= 0) {
+         printf("You wrote incorrect sizes of KeySpaces, please rewrite them\n");
+         while (getchar() != '\n'); //очищение стандартного потока ввода
+         continue;
+          }
+      return 0;
     }
-    return 0;
 }
 
 char *get_str() {
